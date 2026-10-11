@@ -1,0 +1,436 @@
+/* ============================================================
+   CAC 2026 战队页 - 复刻版样式
+   参照 cac.pwesports.cn/2026/team 提取改写（去除 scoped 属性）
+   ============================================================ */
+
+/* ---------- Reset ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul, ol, li { list-style: none; }
+img { border: 0; }
+em, i { font-style: normal; }
+a { text-decoration: none; -webkit-touch-callout: none; }
+* :focus { outline: 0; }
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-width: 1250px;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: #0e1320;
+}
+
+.container { text-align: center; color: #fff; }
+.container h2 { font-size: 0; background-repeat: no-repeat; background-position: center; }
+.container .list-no-data { width: 450px; height: 253px; margin-top: -20px; object-fit: contain; }
+
+/* ============================================================
+   Banner（轮播 + 顶部栏 + 语言切换）
+   ============================================================ */
+.banner { position: relative; }
+.banner .banner-swiper { position: relative; overflow: hidden; }
+.banner .swiper-track { display: flex; transition: transform .6s ease; }
+.banner .swiper-slide { width: 100%; min-width: 100%; max-width: 1920px; height: 1080px; }
+.banner .swiper-slide img { width: 100%; height: 1042px; object-fit: cover; display: block; }
+
+.banner .swiper-pagination3 {
+  text-align: center; width: 100%; padding-top: 10px;
+  position: absolute; bottom: 60px; left: 50%; transform: translate(-50%);
+  z-index: 2; white-space: nowrap;
+}
+.banner .swiper-pagination3 span {
+  display: inline-block; cursor: pointer;
+  background-color: #cfd5e3; margin: 0 10px; opacity: 1;
+  width: 22px; height: 22px; border-radius: 50%;
+  transition: background-color .26s;
+}
+.banner .swiper-pagination3 span.active { background-color: #fcac19; }
+
+.banner.cac-banner::before {
+  content: ""; position: absolute; z-index: 2; left: 72px; top: 48px;
+  width: 387px; height: 30px; pointer-events: none;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-7-9/049eb7e3-4e71-40c3-bcd0-82ff2fdfc262.png);
+}
+.banner.cac-banner::after {
+  content: ""; position: absolute; z-index: 1; right: 75px; top: 90px;
+  width: 312px; height: 74px; pointer-events: none;
+  background-image: url(https://img.csgo.com.cn/csgostatic/csgo/5a0b0bc9-7280-4920-a4f4-ceaed8b224bc.png);
+}
+
+.banner .top-header {
+  background: url(https://img.dota2.com.cn/dota2static/file/e127cba0-05ef-4ee9-9a96-91bbc821e1bc.png) no-repeat center;
+  position: absolute; width: 100%; height: 80px; top: 0; z-index: 2;
+}
+.banner .top-header .row {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 1200px; height: 80px; margin: 0 auto;
+}
+.banner .top-header .row .logo { display: flex; align-items: center; }
+.banner .top-header .row .logo a { display: block; background-size: 100% 100%; }
+.banner .top-header .row .logo a:nth-child(1) {
+  width: 170px; height: 23px;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-7-18/f2d5612f-b2e1-4047-a592-aefbdb9ceee9.png);
+}
+.banner .top-header .row .logo a:nth-child(2) {
+  width: 81px; height: 40px; margin: 0 28px;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/7b2989d9-73b9-477f-a0d0-970fee68c7fa.png);
+}
+.banner .top-header .row .logo a:nth-child(3) {
+  width: 30px; height: 47px;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2026-4-13/da474d1b-76e1-43b9-90b9-eebf5f8af14d.png);
+  background-size: 30px 47px;
+}
+.banner .top-header .row .col { display: flex; align-items: center; }
+
+.banner .top-header .row .col .more-share { display: flex; align-items: center; color: #acacad; font-size: 18px; }
+.banner .top-header .row .col .more-share .share-icon { position: relative; }
+.banner .top-header .row .col .more-share .share-icon:hover .tip { display: block; }
+.banner .top-header .row .col .more-share .share-icon .icon {
+  display: block; width: 28px; height: 28px; margin-left: 10px;
+  opacity: .42; cursor: pointer; transition: opacity .26s;
+  background-position: 0 0; background-repeat: no-repeat;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/b4f548e2-bb66-4f77-ad23-21326ec1f56a.png);
+}
+.banner .top-header .row .col .more-share .share-icon .icon:hover { opacity: 1; }
+.banner .top-header .row .col .more-share .share-icon .icon.weibo { margin-left: 0; background-position: 0 0; }
+.banner .top-header .row .col .more-share .share-icon .icon.douyin { background-position-x: -34px; }
+.banner .top-header .row .col .more-share .share-icon .icon.weixin { background-position-x: -70px; }
+.banner .top-header .row .col .more-share .share-icon .icon.bilibili { background-position-x: -106px; }
+.banner .top-header .row .col .more-share .share-icon .icon.feishu { background-position-x: -140px; }
+.banner .top-header .row .col .more-share .share-icon .tip {
+  display: none; position: absolute; left: -42px; top: 40px;
+  width: 120px; padding: 5px; border-radius: 10px; background-color: #fff; z-index: 9;
+}
+.banner .top-header .row .col .more-share .share-icon .tip img { width: 100%; }
+
+.banner .top-header .row .col .select-box { position: relative; margin-left: 34px; width: 242px; height: 34px; }
+.banner .top-header .row .col .select-box .select-content {
+  position: absolute; left: 0; top: 0; width: 100%;
+  overflow: hidden; height: 34px; transition: height .26s; border-top-left-radius: 14px;
+  text-align: left; z-index: 9;
+}
+.banner .top-header .row .col .select-box:hover .select-content { height: 172px; }
+.banner .top-header .row .col .select-box .select-content .select {
+  position: relative; display: flex; align-items: center; height: 34px;
+  color: #e4e4e4; background-color: #463770; border-bottom-right-radius: 14px; cursor: pointer;
+}
+.banner .top-header .row .col .select-box .select-content .select span {
+  padding-left: 20px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+}
+.banner .top-header .row .col .select-box .select-content .select i {
+  position: absolute; top: 13px; right: 24px; width: 20px; height: 9px;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-7-9/cc6da85d-ca28-4912-ad92-bacb636b0713.png);
+}
+.banner .top-header .row .col .select-box .select-content ul { padding: 10px 20px; background-color: rgba(46, 42, 75, .9); }
+.banner .top-header .row .col .select-box .select-content ul li a {
+  display: flex; align-items: center; height: 34px; font-size: 16px; color: #e4e4e4;
+}
+.banner .top-header .row .col .select-box .select-content ul li a:hover { color: #fff; }
+
+.banner .lang {
+  width: 1200px; margin: 0 auto; font-size: 18px; padding-top: 31px;
+  position: absolute; top: 80px; left: 50%; transform: translate(-50%);
+  z-index: 1; display: flex; flex-direction: column; align-items: flex-end;
+}
+.banner .lang .inner { width: 240px; }
+.banner .lang p { display: flex; align-items: center; }
+.banner .lang p:nth-child(1) { width: 85px; background-color: rgba(0, 0, 0, .4); }
+.banner .lang p:nth-child(2) { height: 20px; margin-top: 5px; }
+.banner .lang p:nth-child(2) a { height: 100%; color: #fff; font-size: 14px; }
+.banner .lang p:nth-child(2) a:nth-child(1) { width: 48px; }
+.banner .lang p:nth-child(2) a:nth-child(2) { width: 100px; margin-left: 20px; }
+.banner .lang p:nth-child(2) a:hover { color: #ff8a26; }
+.banner .lang span {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  height: 38px; cursor: pointer; color: #fff;
+}
+.banner .lang span.active { color: #ff8a26; font-weight: 700; }
+
+/* ============================================================
+   TopNavbar（顶部导航）
+   ============================================================ */
+.navbar {
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-20/ca831d27-05f2-46c6-b32f-af2f7779ceb3.png) no-repeat center center/1920px 50px;
+  height: 50px; position: relative; background-color: #332852; z-index: 1;
+}
+.navbar .nav { position: relative; display: flex; align-items: center; max-width: 938px; margin: 0 auto; }
+.navbar .nav span {
+  display: flex; align-items: center; justify-content: center; position: relative;
+  letter-spacing: 1px; color: #fff; font-size: 18px; width: 134px; height: 50px;
+  text-transform: uppercase; cursor: pointer;
+}
+.navbar .nav span:hover { color: #ff8a26; }
+.navbar .nav span.active { color: #ff8a26; }
+.navbar .nav i {
+  position: absolute; left: 294px; bottom: 0;
+  width: 134px; height: 48px; pointer-events: none;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-20/e2049e6b-ed48-49fe-b918-5ccbadf13a8b.png);
+  transition: left .26s;
+}
+
+/* ============================================================
+   RightNavbar（右侧悬浮导航）
+   ============================================================ */
+.right-navbar {
+  position: fixed; right: -20px; bottom: 20%; width: 192px;
+  opacity: 0; pointer-events: none; z-index: -99; transition: all .6s;
+}
+.right-navbar.show { opacity: 1; z-index: 99; pointer-events: initial; }
+.right-navbar .navbar {
+  width: 154px; padding-left: 6px; padding-top: 20px; height: 416px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-24/5e31792b-9c39-4841-8ee5-e4285b2e533d.png) no-repeat center center/154px 416px;
+  background-color: transparent;
+}
+.right-navbar .navbar li {
+  display: flex; align-items: center; justify-content: center;
+  width: 142px; height: 54px; font-size: 20px; cursor: pointer; text-transform: uppercase;
+}
+.right-navbar .navbar li:hover {
+  color: #fec406;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/6a9689bb-c650-4261-ad13-47c7a3451caf.png);
+}
+.right-navbar .navbar li.cur {
+  color: #000;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-24/952a09a8-3757-4939-a4b0-5e659d071efe.png) no-repeat center center/133px 47px;
+}
+.right-navbar .navbar li.btn-top { color: #8e77ff; margin-top: 4px; }
+
+/* ============================================================
+   战队模块 team-info-module
+   ============================================================ */
+.team-info-module {
+  height: 1662px; padding-top: 80px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2026-4-1/2ddc7d1b-a111-40e5-b8e2-d27a5ab14b30.jpg) no-repeat top center;
+}
+.team-info-module .team-info { width: 1200px; margin: 0 auto; }
+
+.team-info-module .team-info .team-tabs {
+  display: flex; flex-wrap: wrap; justify-content: space-between; height: 320px;
+}
+.team-info-module .team-info .team-tabs li {
+  display: flex; align-items: center; justify-content: center;
+  width: 142px; height: 141px; cursor: pointer;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-27/843c8caa-478a-49a0-87e7-332bff4b7505.png) no-repeat center center/100% 100%;
+  margin-bottom: 15px; transition: transform .15s;
+}
+.team-info-module .team-info .team-tabs li:hover { transform: scale(1.06); }
+.team-info-module .team-info .team-tabs li img { height: 120px; width: 120px; object-fit: contain; }
+.team-info-module .team-info .team-tabs li.cur {
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-27/122dc240-89a9-4054-b966-045b8f2c264d.png) no-repeat center center/100% 100%;
+}
+
+.team-info-module .team-info .team-content { width: 1224px; height: 1151px; margin-left: -12px; }
+.team-info-module .team-info .team-content .team-header {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 92px; padding-left: 102px; position: relative; z-index: 3;
+}
+.team-info-module .team-info .team-content .team-header span {
+  font-weight: 700; font-size: 34px; text-transform: uppercase;
+}
+.team-info-module .team-info .team-content .team-body { position: relative; height: 582px; margin-top: -92px; }
+.team-info-module .team-info .team-content .team-body img {
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%);
+  max-height: 90%;
+}
+
+.team-info-module .team-info .team-content .team-member {
+  height: 81px; display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+}
+.team-info-module .team-info .team-content .team-member li {
+  width: 181px; padding: 0 5px; height: 43px; line-height: 43px; margin: 0 5px;
+  font-size: 20px; cursor: pointer; text-align: center; color: #fff;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-27/cb5e6808-85d5-4f1c-9e32-e96f345be2bb.png);
+  background-size: 181px 86px; background-position-x: 0; background-position-y: 43px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.team-info-module .team-info .team-content .team-member li.cur {
+  font-weight: 700; color: #fff; background-position-y: 0;
+}
+
+.team-info-module .team-info .team-content .team-member-info { position: relative; height: 450px; overflow: hidden; }
+.team-info-module .team-info .team-content .team-member-info .logo {
+  position: absolute; top: 0; left: 23px; display: flex; align-items: center;
+  justify-content: center; z-index: 6; width: 190px; height: 142px;
+}
+.team-info-module .team-info .team-content .team-member-info .logo img { max-height: 80%; }
+.team-info-module .team-info .team-content .team-member-info .name {
+  position: absolute; right: 130px; width: 653px; margin-top: 5px;
+  font-size: 56px; z-index: 6; font-weight: 700; text-transform: uppercase;
+}
+.team-info-module .team-info .team-content .team-member-info h4 {
+  position: absolute; right: 130px; width: 653px; display: flex; align-items: center;
+  justify-content: center; top: 85px; height: 56px; font-size: 20px;
+  letter-spacing: 4px; color: rgba(255, 255, 255, .75);
+}
+.team-info-module .team-info .team-content .team-member-info .member-photo {
+  position: absolute; left: 22px; bottom: 0; width: 460px; height: 365px; overflow: hidden;
+}
+.team-info-module .team-info .team-content .team-member-info .member-photo img {
+  position: absolute; left: 50%; bottom: 0; transform: translate(-50%); max-height: 100%;
+}
+.team-info-module .team-info .team-content .team-member-info .statistics {
+  display: flex; flex-wrap: wrap; margin-top: 190px; padding-left: 490px;
+}
+.team-info-module .team-info .team-content .team-member-info .statistics li {
+  min-width: 114px; margin-right: 96px; margin-bottom: 12px;
+}
+.team-info-module .team-info .team-content .team-member-info .statistics li:nth-child(4) { margin-left: 115px; margin-right: 118px; }
+.team-info-module .team-info .team-content .team-member-info .statistics p {
+  position: relative; font-size: 48px; font-weight: 700; font-style: italic;
+  color: #fff; margin-bottom: 5px;
+}
+.team-info-module .team-info .team-content .team-member-info .statistics p::before {
+  content: ""; position: absolute; left: -50px; bottom: -34px;
+  width: 235px; height: 38px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-27/f5eb52dd-6772-4c5d-a49e-523974cd34b3.png) no-repeat center center/205px 38px;
+}
+.team-info-module .team-info .team-content .team-member-info .statistics span {
+  font-weight: 700; font-size: 18px; position: relative; z-index: 1;
+}
+
+/* ============================================================
+   赛程模块 race-schedule-module
+   ============================================================ */
+.race-schedule-module {
+  height: 1056px; padding-top: 280px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-27/2c1ed729-1404-446d-979d-611a1edf6b8e.jpg) no-repeat center;
+}
+.race-schedule-module .race-schedule { width: 1200px; margin: 0 auto; }
+.race-schedule-module .race-schedule h2 {
+  font-size: 0; height: 227px; margin-bottom: 36px;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/e42280f9-ebfe-4f37-8999-d6783d1255a8.png);
+}
+.race-schedule-module .race-schedule .spectators-items {
+  font-size: 18px; color: #0e1320; padding: 0 24px 0 19px;
+  height: 630px; overflow-y: auto;
+}
+.race-schedule-module .race-schedule .spectators-items::-webkit-scrollbar { width: 12px; }
+.race-schedule-module .race-schedule .spectators-items::-webkit-scrollbar-thumb {
+  width: 10px !important; background: #8a85ff; box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+}
+.race-schedule-module .race-schedule .spectators-items::-webkit-scrollbar-track { background-color: #bdc2cd; }
+.race-schedule-module .race-schedule .spectators-items li {
+  display: flex; justify-content: space-between; height: 120px; margin-bottom: 6px;
+}
+.race-schedule-module .race-schedule .spectators-items li img { height: 72px; margin: 0 14px; }
+.race-schedule-module .race-schedule .spectators-items li > div { background-color: #cfd5e3; }
+.race-schedule-module .race-schedule .spectators-items li:nth-child(odd) > div { background-color: #46386e; color: #feffff; }
+.race-schedule-module .race-schedule .spectators-items li:nth-child(odd) .team-info .video a { color: #feffff; }
+.race-schedule-module .race-schedule .spectators-items li:nth-child(odd) .time::before { border-right: 19px solid #46386e; }
+.race-schedule-module .race-schedule .spectators-items li:nth-child(odd) .score::after { border-left: 19px solid #46386e; }
+
+.race-schedule-module .race-schedule .spectators-items li .time {
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  width: 115px; padding-right: 19px; position: relative; background-color: #cfd5e3;
+}
+.race-schedule-module .race-schedule .spectators-items li .time::before {
+  content: ""; position: absolute; left: -18px; bottom: 0; width: 0; height: 120px;
+  border-top: 19px solid transparent; border-right: 19px solid #cfd5e3;
+}
+.race-schedule-module .race-schedule .spectators-items li .time strong { font-weight: 400; color: #8b89ff; }
+.race-schedule-module .race-schedule .spectators-items li .team-info { display: flex; align-items: center; width: 786px; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .team { width: 280px; display: flex; align-items: center; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .team:first-child { justify-content: flex-end; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .team .name { text-align: left; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .team .name span { display: block; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .team .name i { font-style: normal; color: #ff8a26; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .vs { flex: 1; font-size: 22px; font-family: "Industry-Bold", Impact, sans-serif; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .video {
+  position: relative; width: 188px; display: flex; flex-direction: column; color: #7e7d9f;
+}
+.race-schedule-module .race-schedule .spectators-items li .team-info .video::before {
+  position: absolute; left: 0; top: 50%; content: ""; width: 2px; height: 50px;
+  margin-top: -25px; background-color: #767683;
+}
+.race-schedule-module .race-schedule .spectators-items li .team-info .video a { color: #0e1320; margin-top: 5px; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .video a:hover { text-decoration: underline; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .video a span { position: relative; }
+.race-schedule-module .race-schedule .spectators-items li .team-info .video a span::after {
+  position: absolute; right: -28px; top: 3px; content: ""; width: 20px; height: 20px;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/5e4f59bd-0a7c-46bb-aef5-e4c884c82c07.png);
+}
+.race-schedule-module .race-schedule .spectators-items li .score {
+  display: flex; justify-content: center; align-items: center;
+  width: 249px; padding-left: 19px; position: relative;
+}
+.race-schedule-module .race-schedule .spectators-items li .score span {
+  display: flex; align-items: center; justify-content: center; width: 55px; height: 69px;
+  border-radius: 3px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-26/96becf60-a17c-4587-b5aa-edfd19f9b6d8.png) no-repeat center center/55px 69px;
+  font-size: 41px; color: #fff; font-family: "Industry-Bold", Impact, sans-serif;
+}
+.race-schedule-module .race-schedule .spectators-items li .score i {
+  font-size: 0; width: 5px; height: 17px; margin: 0 18px;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/88a96d66-7208-45f8-8651-d7bcb9ad1112.png);
+}
+.race-schedule-module .race-schedule .spectators-items li .score::after {
+  content: ""; position: absolute; right: -18px; bottom: 0; width: 0; height: 120px;
+  border-bottom: 19px solid transparent; border-left: 19px solid #cfd5e3;
+}
+.race-schedule-module .race-schedule .spectators-items li .no-match {
+  width: 100%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 22px; letter-spacing: 2px;
+}
+
+/* ============================================================
+   Footer 页脚
+   ============================================================ */
+.footer-module {
+  height: 2085px; overflow: hidden;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-23/885db43a-ca50-49f2-bf2e-1c33490c7b80.jpg) no-repeat center;
+}
+.footer { position: relative; }
+.footer .container { width: 1200px; margin: 0 auto; }
+.footer .container .about-cac { padding-top: 51px; }
+.footer .container h2 { font-size: 0; background-repeat: no-repeat; background-position: center; }
+.footer .container .about-cac h2 {
+  height: 161px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-26/dabee771-d235-4e12-906a-8ffbdb84a420.png) no-repeat center top;
+}
+.footer .container .about-cac .about-box {
+  width: 1204px; height: 246px; position: relative; left: -4px;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-24/fa5e4c83-28e5-4afd-add8-bdfe7ac98244.png);
+}
+.footer .container .about-cac .about-box dl {
+  display: flex; align-items: center; height: 228px; padding-left: 70px; padding-right: 52px;
+}
+.footer .container .about-cac .about-box dl dt {
+  width: 104px; height: 162px;
+  background-image: url(https://static.pwesports.cn/esportsadmin/CSGO/2026-4-13/da474d1b-76e1-43b9-90b9-eebf5f8af14d.png);
+}
+.footer .container .about-cac .about-box dl dd {
+  flex: 1; font-size: 19px; color: #fff; padding-left: 20px; text-align: justify; line-height: 160%;
+}
+.footer .container .partner { padding-top: 40px; height: 578px; }
+.footer .container .partner h2 {
+  height: 172px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-26/bbbcf2ea-bd7b-458e-a4d9-2368e41f69bf.png) no-repeat center top;
+}
+.footer .container .partner ul { display: flex; flex-wrap: wrap; height: 300px; padding: 0 60px; }
+.footer .container .partner ul li { margin-bottom: 40px; width: 20%; }
+.footer .container .partner ul li:nth-of-type(-n + 4) { width: 25%; }
+.footer .container .partner ul li .img-box { height: 76px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; }
+.footer .container .partner ul li .img-box img { max-width: 100%; max-height: 100%; }
+.footer .container .official-platform { padding-top: 40px; font-size: 18px; }
+.footer .container .official-platform h2 {
+  height: 117px;
+  background: url(https://static.pwesports.cn/esportsadmin/CSGO/2025-6-26/69cb1c88-8941-415a-82dc-08a9b6263522.png) no-repeat center top;
+}
+.footer .container .official-platform .official { display: flex; flex-wrap: wrap; margin-top: 64px; }
+.footer .container .official-platform .official li { height: 240px; width: 25%; }
+.footer .container .official-platform .official li .code-box {
+  width: 176px; height: 160px; margin: 0 auto 12px; padding: 7px 10px 0 0;
+  background-image: url(https://img.dota2.com.cn/dota2static/file/c03653dc-6f59-41f5-93d3-4fcf12cf995d.png);
+}
+.footer .container .official-platform .official li .code-box.hide {
+  display: flex; align-items: center; justify-content: center; background-image: none; padding: 0;
+}
+.footer .container .official-platform .official li .code-box.hide img { width: 100%; }
+.footer .container .official-platform .official li .code-box img { width: 148px; }
+.footer .container .official-platform .official li .name { position: relative; padding-right: 13px; height: 24px; color: #fff; }
+.footer .container .official-platform .official li .name span { position: absolute; width: 400px; left: -56px; white-space: nowrap; }
+
+/* 版权声明（复刻版新增） */
+.copyright { padding: 30px 0 40px; color: rgba(255, 255, 255, .45); font-size: 14px; letter-spacing: 1px; }
