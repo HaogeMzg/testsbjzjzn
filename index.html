@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="CAC 2026 战队页复刻版：CS亚洲邀请赛(CAC) 16支参赛战队、选手数据与赛程回放。本地测试学习用途。" />
+  <meta name="referrer" content="no-referrer" />
+  <title>CAC 2026 ｜ 战队（复刻测试页）</title>
+  <link rel="shortcut icon" type="image/x-icon" href="//www.csgo.com.cn/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<section class="container">
+
+  <!-- ================= Banner 轮播 ================= -->
+  <section class="banner cac-banner" id="j_home">
+    <div class="banner-swiper">
+      <div class="swiper-track" id="bannerTrack"></div>
+      <div class="swiper-pagination3" id="bannerPagination"></div>
+    </div>
+
+    <div class="top-header">
+      <div class="row">
+        <div class="logo">
+          <a href="https://www.pwesports.cn" target="_blank" title="完美世界电竞"></a>
+          <a href="https://www.csgo.com.cn" target="_blank" title="CSGO国服"></a>
+          <a href="https://cac.pwesports.cn/2026" target="_blank" title="CAC"></a>
+        </div>
+        <div class="col">
+          <div class="more-share">
+            <p data-i18n="top_more">更多：</p>
+            <div class="share-icon">
+              <span class="icon weibo" data-link="https://weibo.com/u/7472612743" title="微博"></span>
+            </div>
+            <div class="share-icon">
+              <span class="icon douyin" title="抖音"></span>
+              <p class="tip"><img src="https://static.pwesports.cn/esportsadmin/esports/2026-5-11/198e7077-4cac-4864-85af-9e4158073e4e.jpg" alt="抖音" /></p>
+            </div>
+            <div class="share-icon">
+              <span class="icon weixin" title="微信公众号"></span>
+              <p class="tip"><img src="https://img.dota2.com.cn/dota2static/file/f64df74c-08e1-425c-9f85-eed3eb08be68.png" alt="微信公众号" /></p>
+            </div>
+            <div class="share-icon">
+              <span class="icon bilibili" data-link="https://space.bilibili.com/439605619" title="B站"></span>
+            </div>
+            <div class="share-icon">
+              <span class="icon feishu" data-link="https://x.com/PWRDEsports" title="X"></span>
+            </div>
+          </div>
+          <div class="select-box">
+            <div class="select-content">
+              <div class="select">
+                <span data-i18n="top_select">前往其他平台</span><i></i>
+              </div>
+              <ul>
+                <li><a href="https://cac.pwesports.cn/2026" target="_blank"><span>CAC 2026 官网</span></a></li>
+                <li><a href="https://www.pwesports.cn" target="_blank"><span>完美世界电竞</span></a></li>
+                <li><a href="https://www.csgo.com.cn" target="_blank"><span>反恐精英：全球攻势</span></a></li>
+                <li><a href="https://pvp.wanmei.com" target="_blank"><span>完美世界竞技平台</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lang">
+      <div class="inner">
+        <p>
+          <span class="active" id="langZh">中</span>
+          <span id="langEn">EN</span>
+        </p>
+        <p>
+          <a href="https://www.hltv.org/events/8263/cs-asia-championships-2026" target="_blank">HLTV</a>
+          <a href="https://liquipedia.net/counterstrike/CS_Asia_Championships/2026" target="_blank">Liquipedia</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 顶部导航 ================= -->
+  <div class="navbar">
+    <div class="nav" id="topNav">
+      <span data-nav="home" data-link="https://cac.pwesports.cn/2026" data-i18n="nav_home">首页</span>
+      <span data-nav="live" data-link="https://cac.pwesports.cn/2026/live" data-i18n="nav_live">直播</span>
+      <span data-nav="schedule" data-link="https://cac.pwesports.cn/2026/schedule" data-i18n="nav_schedule">赛程</span>
+      <span class="active" data-nav="team" data-i18n="nav_team">战队</span>
+      <span data-nav="ticket" data-link="https://cac.pwesports.cn/2026/ticket" data-i18n="nav_ticket">购票</span>
+      <span data-nav="news" data-link="https://cac.pwesports.cn/2026/news" data-i18n="nav_news">新闻</span>
+      <span data-nav="galleries" data-link="https://cac.pwesports.cn/2026/galleries" data-i18n="nav_galleries">图片</span>
+      <span data-nav="data" data-link="https://cac.pwesports.cn/2026/data" data-i18n="nav_data">数据</span>
+      <span data-nav="partner" data-link="https://cac.pwesports.cn/2026/partner" data-i18n="nav_partner">合作伙伴</span>
+      <i id="navIndicator"></i>
+    </div>
+  </div>
+
+  <!-- ================= 右侧悬浮导航 ================= -->
+  <div class="right-navbar" id="rightNavbar">
+    <ul class="navbar">
+      <li class="cur" data-target="j_home" data-i18n="right_home">首页</li>
+      <li data-target="j_teams" data-i18n="right_teams">参赛队伍</li>
+      <li data-target="j_schedule" data-i18n="right_schedule">赛程</li>
+      <li data-target="j_partner" data-i18n="right_partners">合作伙伴</li>
+      <li class="btn-top" data-target="j_home" data-i18n="back_top">回到顶部</li>
+    </ul>
+  </div>
+
+  <!-- ================= 战队模块 ================= -->
+  <div class="team-info-module" id="j_teams">
+    <div class="team-info">
+      <!-- 战队 Tabs -->
+      <ul class="team-tabs" id="teamTabs"></ul>
+
+      <!-- 战队详情 -->
+      <div class="team-content">
+        <div class="team-header">
+          <span id="teamName">--</span>
+        </div>
+        <div class="team-body">
+          <img id="teamBg" src="" alt="" />
+        </div>
+        <ul class="team-member" id="teamMember"></ul>
+        <div class="team-member-info">
+          <p class="logo"><img id="teamLogo" src="" alt="" /></p>
+          <p class="name" id="playerName">--</p>
+          <h4 data-i18n="player_stats">- 选手数据 -</h4>
+          <div class="member-photo">
+            <img id="playerPhoto" src="" alt="" />
+          </div>
+          <ul class="statistics">
+            <li>
+              <p id="statAdr">--</p>
+              <span>ADR</span>
+            </li>
+            <li>
+              <p id="statRating">--</p>
+              <span data-i18n="stat_rating">Rating Pro</span>
+            </li>
+            <li>
+              <p id="statKills">--</p>
+              <span data-i18n="stat_kills">击杀</span>
+            </li>
+            <li>
+              <p id="statMatches">--</p>
+              <span data-i18n="stat_matches">场次</span>
+            </li>
+            <li>
+              <p id="statHs">--</p>
+              <span data-i18n="stat_hs">爆头率</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 赛程模块 ================= -->
+  <div class="race-schedule-module" id="j_schedule">
+    <div class="race-schedule">
+      <h2></h2>
+      <ul class="spectators-items" id="matchList"></ul>
+    </div>
+  </div>
+
+  <!-- ================= 页脚 ================= -->
+  <div class="footer-module" id="j_partner">
+    <div class="footer">
+      <div class="container">
+
+        <div class="about-cac">
+          <h2></h2>
+          <div class="about-box">
+            <dl>
+              <dt></dt>
+              <dd data-i18n="about_cac">
+                • CS亚洲邀请赛(CAC)——由完美世界电竞举办的世界T1级别线下CS赛事。<br />
+                • CAC系列赛事始于2018年，CAC 2026赛事总奖金为100万美元，16支世界豪门战队将再度云集中国，为广大中国玩家带来2026年度CS线下超级盛宴。<br />
+                • 凭借传承8年的赛事经验，CAC努力将世界顶尖力量引入中国，并推动亚洲CS水平的长远发展。CAC致力于打造高品质、高水平的CS赛事，一切是为了广大CS玩家与参赛战队。
+              </dd>
+            </dl>
+          </div>
+        </div>
+
+        <div class="partner">
+          <h2></h2>
+          <ul id="partnerList"></ul>
+        </div>
+
+        <div class="official-platform">
+          <h2></h2>
+          <ul class="official" id="platformList"></ul>
+        </div>
+
+        <p class="copyright">
+          本页面为 <a href="https://cac.pwesports.cn/2026/team" target="_blank" style="color:#8b89ff;">CAC 2026 官网战队页</a> 的静态复刻，仅用于本地测试与学习，图片与数据版权归完美世界电竞所有。
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
